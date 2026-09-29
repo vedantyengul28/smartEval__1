@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  body {
+    @apply bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 text-slate-800 antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98];
+  }
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 focus:ring-indigo-500 shadow-lg shadow-indigo-500/30;
+  }
+  .btn-secondary {
+    @apply btn bg-white/80 backdrop-blur border border-slate-200 text-slate-700 hover:bg-white hover:border-indigo-300 focus:ring-indigo-500 shadow-sm;
+  }
+  .btn-danger {
+    @apply btn bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-red-600 hover:to-pink-600 focus:ring-red-500 shadow-lg shadow-red-500/30;
+  }
+  .btn-success {
+    @apply btn bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600 focus:ring-emerald-500 shadow-lg shadow-emerald-500/30;
+  }
+  .btn-ghost {
+    @apply btn text-slate-600 hover:bg-white/60 hover:text-indigo-600;
+  }
+  .input {
+    @apply w-full rounded-xl border border-slate-200 bg-white/80 backdrop-blur px-4 py-3 text-sm text-slate-800 placeholder-slate-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100 transition-all duration-200;
+  }
+  .textarea {
+    @apply input resize-y min-h-[120px];
+  }
+  .label {
+    @apply block mb-2 text-sm font-semibold text-slate-700;
+  }
+  .card {
+    @apply bg-white/80 backdrop-blur-xl rounded-2xl border border-white/50 shadow-xl shadow-slate-200/50;
+  }
+  .card-header {
+    @apply px-6 py-5 border-b border-slate-100/50 bg-gradient-to-r from-slate-50/50 to-transparent;
+  }
+  .card-body {
+    @apply p-6;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold;
+  }
+  .table-wrapper {
+    @apply overflow-x-auto border border-slate-200/50 rounded-2xl bg-white/50 backdrop-blur;
+  }
+  .table {
+    @apply min-w-full text-sm;
+  }
+  .table thead th {
+    @apply bg-gradient-to-r from-slate-50/80 to-slate-100/80 px-5 py-4 text-left font-bold text-slate-700 border-b border-slate-200/50 whitespace-nowrap backdrop-blur;
+  }
+  .table tbody td {
+    @apply px-5 py-4 border-b border-slate-100/50 text-slate-700 align-top bg-white/30;
+  }
+  .table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+  .table tbody tr:hover td {
+    @apply bg-indigo-50/30 transition-colors;
+  }
+  .sidebar-link {
+    @apply flex items-center gap-3 px-5 py-3 rounded-xl text-sm font-semibold text-slate-400 hover:bg-white/20 hover:text-white transition-all duration-200;
+  }
+  .sidebar-link.active {
+    @apply bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/30;
+  }
+}
+
+@layer utilities {
+  .shadow-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Toastify__toast-container {
+  @apply !w-auto;
+}
+
+.Toastify__toast {
+  @apply rounded-xl backdrop-blur-xl shadow-2xl;
+}
+
+.Toastify__toast--success {
+  @apply bg-gradient-to-r from-emerald-500/90 to-teal-500/90 text-white;
+}
+
+.Toastify__toast--error {
+  @apply bg-gradient-to-r from-red-500/90 to-pink-500/90 text-white;
+}
+
+.Toastify__toast--info {
+  @apply bg-gradient-to-r from-indigo-500/90 to-purple-500/90 text-white;
+}
