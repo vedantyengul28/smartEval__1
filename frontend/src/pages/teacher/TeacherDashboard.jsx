@@ -65,15 +65,15 @@ export default function TeacherDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Hello, {user.name} 👋</h1>
+        <h1 className="text-2xl font-bold text-slate-900">Hello, {user.name}</h1>
         <p className="text-slate-500 mt-1">Here's what's happening with your assessments today.</p>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <StatCard label="Assessments" value={stats.assessments} icon="📑" tone="brand" />
-        <StatCard label="Published" value={stats.published} icon="🚀" tone="emerald" />
-        <StatCard label="Submissions" value={stats.submissions} icon="📥" tone="amber" />
-        <StatCard label="To Review" value={stats.pendingReview} icon="🖋️" tone="rose" />
+        <StatCard label="Assessments" value={stats.assessments} icon="A" tone="brand" />
+        <StatCard label="Published" value={stats.published} icon="P" tone="emerald" />
+        <StatCard label="Submissions" value={stats.submissions} icon="S" tone="amber" />
+        <StatCard label="To Review" value={stats.pendingReview} icon="R" tone="rose" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -84,7 +84,7 @@ export default function TeacherDashboard() {
           </div>
           <div className="card-body">
             {recent.length === 0 ? (
-              <EmptyState icon="📝" title="No assessments yet"
+              <EmptyState icon="Q" title="No assessments yet"
                 subtitle="Create your first assessment to get started."
                 action={<Link to="/teacher/assessments/create" className="btn-primary text-sm">Create Assessment</Link>} />
             ) : (

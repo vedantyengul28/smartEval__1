@@ -39,7 +39,7 @@ export default function TeacherSubmissions() {
       </div>
 
       {loading ? <Loader size="lg" /> : filtered.length === 0 ? (
-        <EmptyState icon="📭" title="No submissions yet" subtitle="Students haven't submitted any assessments in this view." />
+        <EmptyState icon="S" title="No submissions yet" subtitle="Students haven't submitted any assessments in this view." />
       ) : (
         <div className="card">
           <div className="table-wrapper border-0">

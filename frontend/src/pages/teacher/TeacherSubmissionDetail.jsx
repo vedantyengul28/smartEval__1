@@ -103,7 +103,7 @@ export default function TeacherSubmissionDetail() {
               </div>
               {readyToEvaluate && (
                 <button onClick={triggerEvaluate} disabled={evaluating} className="btn-primary">
-                  {evaluating ? <Loader size="sm" text="Evaluating..." /> : '🤖 Run AI Evaluation'}
+                  {evaluating ? <Loader size="sm" text="Evaluating..." /> : 'Run AI Evaluation'}
                 </button>
               )}
             </div>
@@ -139,7 +139,7 @@ export default function TeacherSubmissionDetail() {
                       <button onClick={() => approveEval(evalRow.id)} className="btn-success text-xs">Approve</button>
                     )}
                     {evalRow?.status === 'approved' && (
-                      <span className="badge bg-emerald-50 text-emerald-700">✓ Approved</span>
+                      <span className="badge bg-emerald-50 text-emerald-700">Approved</span>
                     )}
                   </div>
                 </div>
@@ -171,7 +171,7 @@ export default function TeacherSubmissionDetail() {
                         {ans.file_path && (
                           <div className="rounded-lg bg-white p-3 border border-slate-200">
                             <div className="text-xs font-semibold text-slate-500 mb-1">Uploaded file</div>
-                            <div className="text-brand-600 text-sm break-all">📄 {ans.file_path.split('\\').pop()}</div>
+                              <div className="text-brand-600 text-sm break-all">{ans.file_path.split('\\').pop()}</div>
                           </div>
                         )}
                         {evalRow?.extracted_text && (
@@ -195,7 +195,6 @@ export default function TeacherSubmissionDetail() {
                     {!evalRow ? (
                       <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-6 text-center text-slate-500 min-h-[180px] flex items-center justify-center">
                         <div>
-                          <div className="text-4xl mb-2">🤖</div>
                           <div className="text-sm">Run AI evaluation above to generate marks.</div>
                         </div>
                       </div>

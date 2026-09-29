@@ -131,7 +131,7 @@ export default function TeacherAssessmentDetail() {
         <div className="card-body">
           {questions.length === 0 ? (
             <div className="text-center py-10 text-slate-500">
-              <div className="text-4xl mb-3">📝</div>
+              <div className="text-4xl mb-3">Q</div>
               No questions yet. <Link className="text-brand-600 font-medium" to={`/teacher/assessments/${id}/questions`}>Add your first question</Link>
             </div>
           ) : (

@@ -93,7 +93,7 @@ export default function StudentSubmissionDetail() {
                       {ans.uploaded_file_path && (
                         <div className="rounded-lg bg-white p-3 border border-slate-200">
                           <Link to={ans.uploaded_file_path} target="_blank" rel="noreferrer" className="text-brand-600 hover:underline text-sm">
-                            📄 {ans.uploaded_file_name || 'Uploaded file'}
+                            {ans.uploaded_file_name || 'Uploaded file'}
                           </Link>
                         </div>
                       )}
@@ -163,7 +163,7 @@ export default function StudentSubmissionDetail() {
                                 </div>
                               </div>
                               {c.reason && <p className="text-xs text-slate-600 mt-1">{c.reason}</p>}
-                              {c.teacher_notes && <p className="text-xs text-brand-700 mt-1 bg-brand-50 rounded p-2">📝 {c.teacher_notes}</p>}
+                              {c.teacher_notes && <p className="text-xs text-brand-700 mt-1 bg-brand-50 rounded p-2">{c.teacher_notes}</p>}
                             </div>
                           ))}
                         </div>

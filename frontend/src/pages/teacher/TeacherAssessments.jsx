@@ -59,7 +59,7 @@ export default function TeacherAssessments() {
       </div>
 
       {loading ? <Loader size="lg" text="Loading assessments..." /> : filtered.length === 0 ? (
-        <EmptyState icon="📑" title="No assessments found"
+        <EmptyState icon="A" title="No assessments found"
           subtitle="Create your first assessment to begin evaluating."
           action={<Link to="/teacher/assessments/create" className="btn-primary">Create Assessment</Link>} />
       ) : (
@@ -95,7 +95,7 @@ export default function TeacherAssessments() {
                   {a.status === 'draft' && (
                     <button onClick={() => onPublish(a.id)} className="btn-success flex-1 text-xs">Publish</button>
                   )}
-                  <button onClick={() => onDelete(a.id, a.title)} className="btn-ghost text-red-600 text-xs">🗑</button>
+                  <button onClick={() => onDelete(a.id, a.title)} className="btn-ghost text-red-600 text-xs">Delete</button>
                 </div>
               </div>
             </div>

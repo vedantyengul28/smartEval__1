@@ -28,7 +28,7 @@ export default function StudentAssessments() {
         <p className="text-slate-500 mt-1 text-sm">Published assessments you can attempt.</p>
       </div>
       {list.length === 0 ? (
-        <EmptyState icon="📑" title="No assessments available" subtitle="Check back when your teacher publishes one." />
+        <EmptyState icon="A" title="No assessments available" subtitle="Check back when your teacher publishes one." />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           {list.map((a) => (

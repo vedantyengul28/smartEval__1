@@ -51,14 +51,14 @@ export default function StudentDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Hello, {user.name} 👋</h1>
+        <h1 className="text-2xl font-bold text-slate-900">Hello, {user.name}</h1>
         <p className="text-slate-500 mt-1">Welcome back. Here's your learning dashboard.</p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <StatCard label="Available" value={stats.available} icon="📑" tone="brand" />
-        <StatCard label="Attempted" value={stats.attempted} icon="📝" tone="default" />
-        <StatCard label="Results" value={stats.resultsCount} icon="🎯" tone="emerald" />
-        <StatCard label="Avg Score" value={`${stats.avgPct}%`} icon="📈" tone="amber" />
+        <StatCard label="Available" value={stats.available} icon="A" tone="brand" />
+        <StatCard label="Attempted" value={stats.attempted} icon="T" tone="default" />
+        <StatCard label="Results" value={stats.resultsCount} icon="R" tone="emerald" />
+        <StatCard label="Avg Score" value={`${stats.avgPct}%`} icon="S" tone="amber" />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="card lg:col-span-2">
@@ -68,7 +68,7 @@ export default function StudentDashboard() {
           </div>
           <div className="card-body">
             {available.length === 0 ? (
-              <EmptyState icon="📑" title="No assessments available" subtitle="Your teacher hasn't published any assessments yet." />
+              <EmptyState icon="A" title="No assessments available" subtitle="Your teacher hasn't published any assessments yet." />
             ) : (
               <div className="divide-y divide-slate-100">
                 {available.map((a) => (
@@ -98,7 +98,7 @@ export default function StudentDashboard() {
           </div>
           <div className="card-body">
             {results.length === 0 ? (
-              <EmptyState icon="🎯" title="No results yet" subtitle="Approved grades will appear here." />
+              <EmptyState icon="R" title="No results yet" subtitle="Approved grades will appear here." />
             ) : (
               <div className="space-y-3">
                 {results.map((r) => (

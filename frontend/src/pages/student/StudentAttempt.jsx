@@ -236,7 +236,7 @@ export default function StudentAttempt() {
                       {files[q.id] ? (
                         <div className="rounded-xl border border-indigo-200 bg-gradient-to-r from-indigo-50 to-purple-50 p-4 flex items-center justify-between gap-3">
                           <div className="min-w-0">
-                            <div className="text-sm font-semibold truncate text-slate-800">📄 {files[q.id].name}</div>
+                              <div className="text-sm font-semibold truncate text-slate-800">{files[q.id].name}</div>
                             <div className="text-xs text-slate-500">{Math.round(files[q.id].size / 1024)} KB</div>
                           </div>
                           <button onClick={() => removeFile(q.id)} className="btn-ghost text-sm text-red-600">Remove</button>
@@ -244,8 +244,7 @@ export default function StudentAttempt() {
                       ) : (
                         <label className="block border-2 border-dashed border-slate-300 hover:border-indigo-400 hover:bg-gradient-to-br hover:from-indigo-50 hover:to-purple-50 rounded-xl p-8 cursor-pointer transition text-center">
                           <input type="file" accept=".png,.jpg,.jpeg,.pdf" className="hidden"
-                            onChange={(e) => onFileChange(q.id, e.target.files)} />
-                          <div className="text-4xl mb-3">📤</div>
+                                onChange={(e) => onFileChange(q.id, e.target.files)} />
                           <div className="text-sm text-slate-700 font-semibold">Click to upload handwritten answer</div>
                           <div className="text-xs text-slate-500 mt-1">Supports PNG, JPG, PDF up to 10MB</div>
                         </label>

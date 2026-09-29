@@ -40,7 +40,7 @@ export default function StudentResults() {
         <p className="text-slate-500 mt-1 text-sm">Approved and released results from your assessments.</p>
       </div>
       {results.length === 0 ? (
-        <EmptyState icon="🎯" title="No results yet" subtitle="Released results will appear here after your teacher approves them." />
+        <EmptyState icon="R" title="No results yet" subtitle="Released results will appear here after your teacher approves them." />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           {results.map((r) => (

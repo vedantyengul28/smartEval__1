@@ -5,6 +5,7 @@ import PublicLayout from './layouts/PublicLayout'
 import TeacherLayout from './layouts/TeacherLayout'
 import StudentLayout from './layouts/StudentLayout'
 
+import LandingPage from './pages/LandingPage'
 import LoginPage from './pages/auth/LoginPage'
 import RegisterPage from './pages/auth/RegisterPage'
 
@@ -41,7 +42,7 @@ function RedirectHome() {
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<RedirectHome />} />
+      <Route path="/" element={<LandingPage />} />
 
       <Route element={<PublicLayout />}>
         <Route path="/login" element={<LoginPage />} />
@@ -71,7 +72,6 @@ export default function App() {
       </Route>
 
       <Route path="*" element={<div className="min-h-screen flex flex-col items-center justify-center gap-4 p-8 text-center">
-        <div className="text-6xl">🧭</div>
         <h1 className="text-2xl font-semibold">404 — Page Not Found</h1>
         <p className="text-slate-500">The page you are looking for doesn't exist.</p>
       </div>} />

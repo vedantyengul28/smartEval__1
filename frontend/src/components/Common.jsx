@@ -12,7 +12,7 @@ export function Loader({ size = 'md', text = null, ...props }) {
   )
 }
 
-export function EmptyState({ icon = '📭', title = 'No data', subtitle = null, action = null }) {
+export function EmptyState({ icon = 'N', title = 'No data', subtitle = null, action = null }) {
   return (
     <div className="flex flex-col items-center justify-center text-center py-16 px-6">
       <div className="text-5xl mb-4">{icon}</div>

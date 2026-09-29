@@ -4,15 +4,15 @@ import { useToast } from '../context/ToastContext'
 
 function Sidebar({ user }) {
   const teacherLinks = [
-    { to: '/teacher/dashboard', label: 'Dashboard', icon: '📊' },
-    { to: '/teacher/assessments', label: 'Assessments', icon: '📑' },
-    { to: '/teacher/submissions', label: 'Submissions', icon: '📥' },
-    { to: '/teacher/results', label: 'Results', icon: '🎯' },
+    { to: '/teacher/dashboard', label: 'Dashboard', icon: 'D' },
+    { to: '/teacher/assessments', label: 'Assessments', icon: 'A' },
+    { to: '/teacher/submissions', label: 'Submissions', icon: 'S' },
+    { to: '/teacher/results', label: 'Results', icon: 'R' },
   ]
   const studentLinks = [
-    { to: '/student/dashboard', label: 'Dashboard', icon: '📊' },
-    { to: '/student/assessments', label: 'Assessments', icon: '📑' },
-    { to: '/student/results', label: 'Results', icon: '🎯' },
+    { to: '/student/dashboard', label: 'Dashboard', icon: 'D' },
+    { to: '/student/assessments', label: 'Assessments', icon: 'A' },
+    { to: '/student/results', label: 'Results', icon: 'R' },
   ]
   const links = user.role === 'teacher' ? teacherLinks : studentLinks
   return (
@@ -41,15 +41,15 @@ function Sidebar({ user }) {
 
 function MobileNav({ user }) {
   const teacherLinks = [
-    { to: '/teacher/dashboard', label: 'Home', icon: '🏠' },
-    { to: '/teacher/assessments', label: 'Papers', icon: '📑' },
-    { to: '/teacher/submissions', label: 'Subs', icon: '📥' },
-    { to: '/teacher/results', label: 'Grades', icon: '🎯' },
+    { to: '/teacher/dashboard', label: 'Home', icon: 'H' },
+    { to: '/teacher/assessments', label: 'Papers', icon: 'P' },
+    { to: '/teacher/submissions', label: 'Subs', icon: 'S' },
+    { to: '/teacher/results', label: 'Grades', icon: 'G' },
   ]
   const studentLinks = [
-    { to: '/student/dashboard', label: 'Home', icon: '🏠' },
-    { to: '/student/assessments', label: 'Papers', icon: '📑' },
-    { to: '/student/results', label: 'Grades', icon: '🎯' },
+    { to: '/student/dashboard', label: 'Home', icon: 'H' },
+    { to: '/student/assessments', label: 'Papers', icon: 'P' },
+    { to: '/student/results', label: 'Grades', icon: 'G' },
   ]
   const links = user.role === 'teacher' ? teacherLinks : studentLinks
   return (
@@ -82,7 +82,7 @@ function Topbar({ user }) {
           <span className="font-semibold text-slate-800">SmartEval</span>
         </div>
         <div className="hidden lg:block text-sm text-slate-500">
-          Welcome back, <span className="text-slate-800 font-medium">{user.name}</span> 👋
+          Welcome back, <span className="text-slate-800 font-medium">{user.name}</span>
         </div>
         <div className="flex items-center gap-3">
           <div className="hidden md:flex items-center gap-3 px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-200">

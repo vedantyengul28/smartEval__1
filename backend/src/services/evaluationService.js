@@ -115,18 +115,25 @@ function fallbackEvaluate(question, studentAnswer, rubrics) {
   let totalMarks = 0;
   const wordCount = studentWords.length;
 
-  for (const rubric of rubrics) {
-    const keywordList = (rubric.keywords || '').toLowerCase().split(/[\s,;]+/).filter(Boolean);
-    let matched = 0;
-    for (const kw of keywordList) {
-      if (studentAnswer.toLowerCase().includes(kw)) matched++;
+  // If no rubrics, use simple semantic matching
+  if (!rubrics || rubrics.length === 0) {
+    const semanticScore = Math.min(1, keywordRatio * 2 + (wordCount > 5 ? 0.2 : 0));
+    totalMarks = Math.round(question.marks * semanticScore * 10) / 10;
+    totalMarks = Math.min(question.marks, Math.max(0, totalMarks));
+  } else {
+    for (const rubric of rubrics) {
+      const keywordList = (rubric.keywords || '').toLowerCase().split(/[\s,;]+/).filter(Boolean);
+      let matched = 0;
+      for (const kw of keywordList) {
+        if (studentAnswer.toLowerCase().includes(kw)) matched++;
+      }
+      const kwRatio = keywordList.length > 0 ? matched / keywordList.length : 0;
+      const lengthFactor = Math.min(1, wordCount / 25);
+      const scoreFactor = Math.min(1, keywordRatio * 0.4 + kwRatio * 0.4 + lengthFactor * 0.2);
+      const awarded = Math.round(rubric.marks * scoreFactor * 10) / 10;
+      const clamped = Math.min(rubric.marks, Math.max(0, awarded));
+      totalMarks += clamped;
     }
-    const kwRatio = keywordList.length > 0 ? matched / keywordList.length : 0;
-    const lengthFactor = Math.min(1, wordCount / 25);
-    const scoreFactor = Math.min(1, keywordRatio * 0.4 + kwRatio * 0.4 + lengthFactor * 0.2);
-    const awarded = Math.round(rubric.marks * scoreFactor * 10) / 10;
-    const clamped = Math.min(rubric.marks, Math.max(0, awarded));
-    totalMarks += clamped;
   }
 
   totalMarks = Math.round(totalMarks * 10) / 10;

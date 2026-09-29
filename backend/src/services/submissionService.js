@@ -85,12 +85,17 @@ async function createSubmission(studentId, data, uploadedFiles = {}) {
       );
       console.log('[Submission] Created programming submission:', answerId, 'for question:', ans.questionId);
     } else {
-      await dbRun(
-        `INSERT INTO answers (id, submission_id, question_id, answer_text, file_path)
-         VALUES (?, ?, ?, ?, ?)`,
-        [answerId, submissionId, ans.questionId, ans.textAnswer || null, filePath]
-      );
-      console.log('[Submission] Created answer:', answerId, 'for question:', ans.questionId);
+      // Only create answer if there's text OR a file
+      if (ans.textAnswer || filePath) {
+        await dbRun(
+          `INSERT INTO answers (id, submission_id, question_id, answer_text, file_path)
+           VALUES (?, ?, ?, ?, ?)`,
+          [answerId, submissionId, ans.questionId, ans.textAnswer || null, filePath]
+        );
+        console.log('[Submission] Created answer:', answerId, 'for question:', ans.questionId, 'with text:', !!ans.textAnswer, 'with file:', !!filePath);
+      } else {
+        console.log('[Submission] Skipping empty answer for question:', ans.questionId);
+      }
     }
   }
 
